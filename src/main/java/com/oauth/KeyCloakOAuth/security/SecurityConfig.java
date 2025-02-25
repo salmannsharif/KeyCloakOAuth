@@ -45,8 +45,8 @@ public class SecurityConfig {
     public JwtAuthenticationConverter jwtAuthenticationConverter(){
         JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
         JwtGrantedAuthoritiesConverter grantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();
-        grantedAuthoritiesConverter.setAuthorityPrefix("");
-        grantedAuthoritiesConverter.setAuthoritiesClaimName("roles");
+        grantedAuthoritiesConverter.setAuthorityPrefix(""); // Default will be Scp or Scope
+        grantedAuthoritiesConverter.setAuthoritiesClaimName("roles"); // Extract the roles from roles array not Scope
         jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(grantedAuthoritiesConverter);
         return jwtAuthenticationConverter;
     }
